@@ -1,22 +1,16 @@
-import { useQuery } from '@apollo/react-hooks';
-import gql from 'graphql-tag';
-
-import { withApollo } from '../lib/apollo';
-import Layout from '../components/Layout';
-import HabitList from '../components/HabitList';
-import HabitForm from '../components/HabitForm';
-
-const HELLO_QUERY = gql`
-  query HelloQuery {
-    sayHello
-  }
-`;
+import { useQuery } from "@apollo/react-hooks";
+import gql from "graphql-tag";
+import { useFetchUser } from "../lib/user";
+import { withApollo } from "../lib/apollo";
+import Layout from "../components/Layout";
+import HabitList from "../components/HabitList";
+import HabitForm from "../components/HabitForm";
 
 const Home = () => {
-  const { data, loading, error } = useQuery(HELLO_QUERY);
+  const { user, loading } = useFetchUser();
   if (loading) return <div />;
   return (
-    <Layout>
+    <Layout user={user} loading={loading}>
       <div className="hero">
         <h1 className="title">Level Up Your Life</h1>
         <div className="list">
