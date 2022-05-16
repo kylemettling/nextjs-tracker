@@ -1,6 +1,6 @@
-import { useQuery } from "@apollo/react-hooks";
-import gql from "graphql-tag";
-import Habit from "./Habit";
+import { useQuery } from '@apollo/react-hooks';
+import gql from 'graphql-tag';
+import Habit from './Habit';
 
 const GET_HABITS = gql`
   query getHabits {
@@ -22,7 +22,6 @@ const HabitList = () => {
     console.log(error);
     return <section />;
   }
-
   const { habits } = data;
 
   return (
