@@ -1,12 +1,12 @@
-const { parsed: localEnv } = require("dotenv").config();
-const webpack = require("webpack");
+const { parsed: localEnv } = require('dotenv').config()
+const webpack = require('webpack')
 
 module.exports = {
-  webpack(config) {
-    config.plugins.push(new webpack.EnvironmentPlugin(localEnv));
-    return config;
-  },
-  env: {
-    AUTH0_CLIENT_SECRET: process.env.AUTH0_CLIENT_SECRET,
-  },
-};
+	webpack(config) {
+		config.plugins.push(new webpack.EnvironmentPlugin(localEnv))
+		return config
+	},
+	// env: {
+	// 	NEXT_PUBLIC_SUPABASE_URL: process.env.NEXT_PUBLIC_SUPABASE_URL,
+	// },
+}
